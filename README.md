@@ -370,3 +370,40 @@ If you want to add a new translation, read this [document](./docs/translation.md
 ## LICENSE
 
 [MIT](https://opensource.org/license/mit/)
+
+
+# 安装
+```
+npm install --save openai
+# or
+yarn add openai
+```
+
+# 设置系统环境变量
+- OPENAI_API_KEY
+
+# cmd 测试
+- `echo %OPENAI_API_KEY%`
+
+# openai-test.js
+```javascript
+import OpenAI from "openai";
+
+const openai = new OpenAI();
+
+async function main() {
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: "system", content: "You are a helpful assistant." }],
+    model: "gpt-3.5-turbo",
+  });
+
+  console.log(completion.choices[0]);
+}
+
+main();
+```
+
+# 运行
+```
+node openai-test.js
+```
